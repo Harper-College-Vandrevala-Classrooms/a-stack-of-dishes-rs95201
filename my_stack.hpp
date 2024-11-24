@@ -1,12 +1,25 @@
+class Dish 
+{
+  private:
+    std::string description;
+  public:
+    Dish(){}
+    Dish(std::string description)
+    {
+      this->description = description;
+    }
+    std::string get_description() 
+    {
+      return this->description;
+    }
+};
 const int MAX_SIZE = 100;
-
-template <typename T>
 class DishStack
 {
 private:
-  T arr[MAX_SIZE];
-  T *top;
-  T *start;
+  Dish arr[MAX_SIZE];
+  Dish *top;
+  Dish *start;
 
 public:
   DishStack()
@@ -25,7 +38,7 @@ public:
     return (start + MAX_SIZE == top);
   }
 
-  void push(T element)
+  void push(Dish element)
   {
     if (!is_full())
     {
@@ -33,12 +46,12 @@ public:
       top++;
     }
   }
-  T pop()
+  Dish pop()
   {
     if (!is_empty())
     {
       top--;
-      T poppedElement = *top;
+      Dish poppedElement = *top;
       return poppedElement;
     }
     else
@@ -51,12 +64,12 @@ public:
     return top - start;
   }
 
-  T peek()
+  Dish peek()
   {
     if (!is_empty())
     {
       top--;
-      T poppedElement = *top;
+      Dish poppedElement = *top;
       top++;
       return poppedElement;
     }
